@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path='/host/:roomID' component={GuestPage} />
-          <Route path='/host/:roomID' component={HostPage} />
+          <Route path='/guest/:roomID' component={HostPage} />
         </Switch>
       </BrowserRouter>
     </div>
