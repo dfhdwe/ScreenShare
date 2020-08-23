@@ -154,8 +154,29 @@ const Guest = (props) => {
     }
 
     return (
-        <div>
-
+        <div className='container'>
+            {hostID !== "" &&
+                peers.filter(item => item.peerID === hostID).map(item =>
+                    <Video
+                        className={'main_video'}
+                        key={item.peerID}
+                        peer={item.peer}
+                        id={item.peerID} />
+                )
+            }
+            <div className='container_videos'>
+                <video className='video' muted ref={user_video} autoPlay playsInline />
+                {hostID !== "" &&
+                    peers.filter(item => item.peerID !== hostID).map(item => {
+                        return (
+                            <Video
+                                className='video'
+                                key={item.peerID}
+                                peer={item.peer}
+                                id={item.peerID} />
+                        );
+                    })}
+            </div>
         </div>
     );
 }

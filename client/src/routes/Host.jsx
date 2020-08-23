@@ -175,8 +175,17 @@ const Host = (props) => {
     }
 
     return (
-        <div>
-
+        <div className='container'>
+            <video className='video' muted ref={user_video} autoPlay playsInline />
+            {peers.map(item => {
+                return (
+                    <Video
+                        className='video'
+                        key={item.peerID}
+                        peer={item.peer}
+                        id={item.peerID} />
+                );
+            })}
         </div>
     );
 }
